@@ -42,7 +42,7 @@ class TurtlePrinter:
         self.active_turtles = []
 
     def clear_screen(self):
-        """기존에 생성된 모든 거북이 제거 및 화면 초기화"""
+        #기존에 생성된 모든 거북이 제거 및 화면 초기화
         kill_service = roslibpy.Service(self.client, '/kill', 'turtlesim/srv/Kill')
 
         # 1. 관리 리스트에 있는 거북이들 제거
@@ -52,7 +52,7 @@ class TurtlePrinter:
             except:
                 pass
 
-        # 2. 혹시 모를 잔여 거북이 초기화 (리셋 서비스 호출 가능)
+        # 2. 혹시 모를 잔여 거북이 초기화
         reset_service = roslibpy.Service(self.client, '/reset', 'std_srvs/srv/Empty')
         reset_service.call(roslibpy.ServiceRequest())
 
@@ -102,7 +102,7 @@ class TurtlePrinter:
                     time.sleep(0.02)
 
     def run_forever(self):
-        """사용자가 종료할 때까지 반복 입력 받는 루프"""
+        #사용자가 종료할 때까지 반복 입력 받는 루프
         print("\n=== 거북이 텍스트 프린터 시스템 ===")
         print("종료하려면 'exit' 또는 'Ctrl+C'를 입력하세요.")
 
